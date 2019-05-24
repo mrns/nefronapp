@@ -7,7 +7,7 @@ const SourceSchema = require("./SourceSchema.js");
 const FoodSchema = new Schema({
   _id: ObjectId,
   sr: {
-    type: "Date"
+    type: "String"
   },
   type: {
     type: "String"
