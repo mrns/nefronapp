@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const Types = mongoose.Types;
-const FoodSchema = require("../schema/FoodSchema.js");
-const FoodModel = mongoose.model("Food", FoodSchema);
+const Food = require("../schema/FoodSchema.js");
 
 class FoodModelTransformer {
   mutate(json) {
@@ -11,7 +10,7 @@ class FoodModelTransformer {
 
     let models = [];
     json.foods.forEach(foodJson => {
-      let model = new FoodModel({
+      let model = new Food({
         _id: new Types.ObjectId(),
         ...foodJson.food
       });
