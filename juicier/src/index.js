@@ -20,14 +20,14 @@ program
 console.log("running juicier:");
 
 let apiExtractor = new ApiExtractor(
-  new NSDAApi(process.env["JUICIER_NSDA_API_KEY"], "v2"),
+  new NSDAApi(process.env["NEFRONAPP_NSDA_API_KEY"], "v2"),
   "reports",
   new FileInput(
     "./../docs/SR-Leg_ASC/FOOD_DES.txt",
     new TextColumnMatcher([1], "~")
   ),
   new MongooseOutput(
-    process.env["JUICIER_DB_CONNECTION_STRING"],
+    process.env["NEFRONAPP_DB_CONNECTION_STRING"],
     new FoodModelTransformer()
   ),
   { sessionId: 1, batchSize: 25 }
