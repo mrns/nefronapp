@@ -1,16 +1,19 @@
 var express = require("express");
-var router = express.Router();
-const foods = require("../schema/FoodSchema.js");
+var foods = express.Router();
+const foodSchema = require("../schema/FoodSchema.js");
+const nsda = require("./nsda");
 
 /* GET users listing. */
-router.get("/", function(req, res, next) {
-  foods.foodlist(function(err, foods) {
+foods.get("/", function(req, res, next) {
+  foodSchema.foodlist(function(err, foodList) {
     if (err) {
       return next(err);
     }
 
-    res.send(foods);
+    res.send(foodList);
   });
 });
 
-module.exports = router;
+foods.use("/nsda", nsda);
+
+module.exports = foods;

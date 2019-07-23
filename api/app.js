@@ -4,6 +4,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var cors = require("cors");
 var mongoose = require("mongoose");
+mongoose.set("useCreateIndex", true);
 mongoose.connect(process.env["NEFRONAPP_DB_CONNECTION_STRING"], {
   useNewUrlParser: true
 });

@@ -76,11 +76,28 @@ const FoodSchema = new Schema({
 FoodSchema.statics.foodlist = function(cb) {
   this.find()
     .limit(20)
-    .exec(function(err, users) {
+    .exec(function(err, foodList) {
       if (err) return cb(err);
 
-      cb(null, users);
+      cb(null, foodList);
     });
 };
+
+FoodSchema.statics.searchNSDA = function(cb, query) {
+  let regexp = `\"${query.split(" ").join('" "')}\"`;
+  this.find({
+    $text: {
+      $search: new RegExp(regexp, "i")
+    }
+  })
+    .limit(20)
+    .exec(function(err, searchResults) {
+      if (err) return cb(err);
+
+      cb(null, searchResults);
+    });
+};
+
+FoodSchema.path("desc.name").index({ text: true });
 
 module.exports = mongoose.model("Food", FoodSchema);
