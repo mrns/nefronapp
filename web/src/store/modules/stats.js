@@ -1,12 +1,6 @@
-const state = {
-  count: 0
-};
+const state = {};
 
-const mutations = {
-  increment(state) {
-    state.count++;
-  }
-};
+const mutations = {};
 
 const getters = {
   totalProteins: () => {},

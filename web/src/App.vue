@@ -20,6 +20,10 @@ export default {
   store,
   components: {
     Nav
+  },
+  methods: {},
+  created() {
+    this.$store.dispatch("foods/getBasicFoods");
   }
 };
 </script>
