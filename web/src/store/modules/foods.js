@@ -2,28 +2,24 @@ import FoodsApi from "../../api/FoodsApi";
 
 const foodsApi = new FoodsApi();
 const state = {
-  basicFoods: {},
-  brandedFoods: {},
+  foods: [],
   NSDAFoodSearch: {}
 };
 
 const actions = {
-  getBasicFoods({ commit }) {
-    foodsApi.getFoods().then(basicFoods => commit("setBasicFoods", basicFoods));
+  getFoods({ commit }) {
+    foodsApi.getFoods().then(foods => commit("setFoods", foods));
   },
   searchNSDAFoods({ commit }, query) {
     foodsApi
-      .searchFoods(query)
+      .searchNSDA(query)
       .then(NSDAFoodSearch => commit("setNSDAFoodSearch", NSDAFoodSearch));
   }
 };
 
 const mutations = {
-  setBasicFoods(state, basicFoods) {
-    state.basicFoods = basicFoods;
-  },
-  setBrandedFoods(state, brandedFoods) {
-    state.brandedFoods = brandedFoods;
+  setFoods(state, foods) {
+    state.foods = foods;
   },
   setNSDAFoodSearch(state, NSDAFoodSearch) {
     state.NSDAFoodSearch = NSDAFoodSearch;

@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
-const NutrientSchema = require("./NutrientSchema.js");
-const SourceSchema = require("./SourceSchema.js");
+const NSDANutrientSchema = require("./NSDANutrientSchema.js");
+const NSDASourceSchema = require("./NSDASourceSchema.js");
 
-const FoodSchema = new Schema({
+const NSDAFoodSchema = new Schema({
   _id: ObjectId,
   sr: {
     type: "String"
@@ -60,10 +60,10 @@ const FoodSchema = new Schema({
     }
   },
   nutrients: {
-    type: [NutrientSchema]
+    type: [NSDANutrientSchema]
   },
   sources: {
-    type: [SourceSchema]
+    type: [NSDASourceSchema]
   },
   footnotes: {
     type: "Array"
@@ -73,7 +73,7 @@ const FoodSchema = new Schema({
   }
 });
 
-FoodSchema.statics.foodlist = function(cb) {
+NSDAFoodSchema.statics.foodlist = function(cb) {
   this.find()
     .limit(20)
     .exec(function(err, users) {
@@ -83,4 +83,4 @@ FoodSchema.statics.foodlist = function(cb) {
     });
 };
 
-module.exports = mongoose.model("Food", FoodSchema);
+module.exports = mongoose.model("NSDAFood", NSDAFoodSchema);

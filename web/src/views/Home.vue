@@ -8,18 +8,18 @@
         </div>
       </div>
     </section>
-    <DailyStats/>
+    <DailyStats />
     <div class="columns">
       <div class="column is-6">
-        <SearchFoodInfo/>
+        <SearchFoodInfo />
       </div>
       <div class="column is-6">
-        <SearchRecipe/>
+        <SearchRecipe />
       </div>
     </div>
     <div class="columns">
       <div class="column is-12">
-        <EventList/>
+        <EventList />
       </div>
     </div>
   </div>
@@ -27,9 +27,9 @@
 
 <script>
 import DailyStats from "../components/stats/DailyStats.vue";
-import SearchFoodInfo from "../components/search/SearchFoodInfo.vue";
+import SearchFoodInfo from "../components/food/SearchFoodInfo.vue";
 import SearchRecipe from "../components/search/SearchRecipe.vue";
-import EventList from "../components/history/EventList.vue";
+import EventList from "../components/events/EventList.vue";
 
 export default {
   name: "Home",

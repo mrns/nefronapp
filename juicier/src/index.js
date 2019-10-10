@@ -10,11 +10,6 @@ program
   .version("0.1.0")
   .option("-c, --config_file [config_file]", "Config file")
   .option("-u, --target_url [target_url]", "Target URL")
-  .option(
-    "-c, --cheese [type]",
-    "Add the specified type of cheese [marble]",
-    "marble"
-  )
   .parse(process.argv);
 
 console.log("running juicier:");

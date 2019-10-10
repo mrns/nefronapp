@@ -14,4 +14,8 @@ export default class FoodsApi {
         throw new Error(`could not fetch /foods: ${err}`);
       });
   }
+
+  getFoods() {
+    return new Promise(resolve => resolve);
+  }
 }

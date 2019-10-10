@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const MeasureSchema = require("./MeasureSchema.js");
+const NSDAMeasureSchema = require("./NSDAMeasureSchema.js");
 
-const NutrientSchema = new Schema({
+const NSDANutrientSchema = new Schema({
   nutrient_id: {
     type: "Number"
   },
@@ -31,8 +31,8 @@ const NutrientSchema = new Schema({
     type: "String"
   },
   measures: {
-    type: [MeasureSchema]
+    type: [NSDAMeasureSchema]
   }
 });
 
-module.exports = NutrientSchema;
+module.exports = NSDANutrientSchema;

@@ -23,7 +23,7 @@ export default {
   },
   methods: {},
   created() {
-    this.$store.dispatch("foods/getBasicFoods");
+    this.$store.dispatch("foods/getFoods");
   }
 };
 </script>
